@@ -14,4 +14,4 @@ ENV TZ Europe/Istanbul
 
 EXPOSE 9090
 
-ENTRYPOINT ["java", "-XX:+UseG1GC", "-XX:+UseStringDeduplication", "-jar", "/payment-infra.jar"]
+ENTRYPOINT ["java", "-XX:+UseG1GC", "-XX:+UseStringDeduplication", "-jar", "-Dspring.profiles.active=prod", "/payment-infra.jar"]

@@ -3,10 +3,10 @@ server:
 
 spring:
   application:
-    name: account
+    name: payment
 
   datasource:
-    url: jdbc:mariadb://localhost:3306/saga
+    url: jdbc:mariadb://mariadb/saga
     username: admin
     password: password
     hikari:
@@ -31,7 +31,7 @@ spring:
       ddl-auto: create-drop
 
   rabbitmq:
-    host: localhost
+    host: rabbitmq
     port: 5672
     username: saga
     password: password

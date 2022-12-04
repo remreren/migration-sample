@@ -11,17 +11,36 @@ services:
       - backend
     restart: on-failure
 
+  account:
+    build:
+      dockerfile: ./account/Dockerfile
+      context: ./
+    ports:
+      - "9091:9090"
+    networks:
+      - backend
+    restart: on-failure
+
   mariadb:
     image: mariadb
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: eeren
+      MYSQL_DATABASE: saga
       MYSQL_USER: admin
       MYSQL_PASSWORD: password
 #    logging:
 #      driver: syslog
 #      options:
 #        tag: '{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})'
+    networks:
+      - backend
+    restart: on-failure
+
+  rabbitmq:
+    image: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: saga
+      RABBITMQ_DEFAULT_PASS: password
     networks:
       - backend
     restart: on-failure
