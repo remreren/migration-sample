@@ -19,6 +19,7 @@
         <module>payment-domain</module>
         <module>payment-infra</module>
         <module>../utility</module>
+        <module>../account/account-domain</module>
     </modules>
 
     <properties>

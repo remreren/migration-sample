@@ -10,4 +10,6 @@ public interface AccountPort {
 
     Optional<AccountModel> getAccountById(Long accountId);
 
+    AccountModel createAccount(AccountModel account);
+
 }

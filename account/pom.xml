@@ -19,6 +19,7 @@
         <module>account-domain</module>
         <module>account-infra</module>
         <module>../utility</module>
+        <module>../payment/payment-domain</module>
     </modules>
 
     <properties>
@@ -50,6 +51,12 @@
         <dependency>
             <groupId>dev.eeren</groupId>
             <artifactId>utility</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>dev.eeren</groupId>
+            <artifactId>payment-domain</artifactId>
             <version>1.0.0</version>
         </dependency>
 

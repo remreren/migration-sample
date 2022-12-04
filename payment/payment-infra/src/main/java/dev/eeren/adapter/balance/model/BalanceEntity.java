@@ -18,6 +18,7 @@ public class BalanceEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column(unique = true)
     private Long userId;
 
     private BigDecimal total;
