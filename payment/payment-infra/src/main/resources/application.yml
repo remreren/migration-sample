@@ -1,0 +1,92 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: payment
+
+  datasource:
+    url: jdbc:mariadb://localhost:3306/doggoapp
+    username: admin
+    password: password
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1795000
+      pool-name: transaction-connection-pool
+      connection-test-query: select 1
+      driver-class-name: org.mariadb.jdbc.Driver
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        ddl-auto: none
+    hibernate:
+      ddl-auto: create-drop
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: user
+    password: password
+    listener:
+      simple:
+        retry:
+          enabled: true
+          max-attempts: 2
+        prefetch: 1
+        concurrency: 1
+        max-concurrency: 1
+      direct:
+        retry:
+          max-attempts: 3
+        consumers-per-queue: 1
+
+management:
+  health:
+    db:
+      enabled: true
+    defaults:
+      enabled: true
+  endpoint:
+    beans:
+      cache:
+        time-to-live: "10s"
+    health:
+      show-details: always
+      status:
+        http-mapping:
+          UP: 200
+          UNKNOWN: 200
+          DOWN: 503
+          OUT_OF_SERVICE: 503
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "beans,caches,caches-cache,conditions,configprops,env-toMatch,env,heapdump,threaddump,mappings"
+
+logging:
+  level:
+    tracer: TRACE
+    org.zalando.logbook: TRACE
+    org.hibernate.SQL: DEBUG
+    com.netflix.eureka: 'OFF'
+    org.elasticsearch.client.RestClient: ERROR
+
+springdoc:
+  default-produces-media-type: application/json
+  default-consumes-media-type: application/json
+  api-docs:
+    enabled: true # must be false in prod
+
+tomcat:
+  stuckThreadDetection:
+    threshold: 30 #in seconds
+    interruptThreshold: 30 #in seconds

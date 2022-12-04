@@ -1,0 +1,10 @@
+/.idea/
+/infra/.mvn/
+HELP.md
+mvnw
+mvnw.cmd
+.mvn/
+target/
+/search.iml
+/domain/domain.iml
+*/.DS_Store

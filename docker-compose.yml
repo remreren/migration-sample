@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  payment:
+    build:
+      dockerfile: ./payment/Dockerfile
+      context: ./
+    ports:
+      - "9090:9090"
+    networks:
+      - backend
+    restart: on-failure
+
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: eeren
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+#    logging:
+#      driver: syslog
+#      options:
+#        tag: '{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})'
+    networks:
+      - backend
+    restart: on-failure
+
+networks:
+  backend:
+    driver: bridge
