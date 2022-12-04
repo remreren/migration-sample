@@ -1,4 +1,4 @@
-package dev.eeren.common.exception;
+package dev.eeren.utility.common.exception;
 
 import lombok.Getter;
 

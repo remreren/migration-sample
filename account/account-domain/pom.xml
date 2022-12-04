@@ -4,27 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.6</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>dev.eeren</groupId>
+        <artifactId>account</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>dev.eeren</groupId>
-    <artifactId>sample-saga</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>account-domain</artifactId>
+    <name>account-domain</name>
     <version>1.0.0</version>
-
-    <modules>
-        <module>payment</module>
-        <module>utility</module>
-        <module>account</module>
-    </modules>
+    <packaging>jar</packaging>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
 </project>

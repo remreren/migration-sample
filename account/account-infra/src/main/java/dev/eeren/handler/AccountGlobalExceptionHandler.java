@@ -1,4 +1,4 @@
-package dev.eeren.common.exception.handler;
+package dev.eeren.handler;
 
 import brave.Tracer;
 import dev.eeren.utility.common.exception.BaseException;
@@ -19,7 +19,7 @@ import java.util.Locale;
 @Slf4j
 @RestControllerAdvice
 @RequiredArgsConstructor
-public class PaymentGlobalExceptionHandler {
+public class AccountGlobalExceptionHandler {
 
     private final Tracer tracer;
 

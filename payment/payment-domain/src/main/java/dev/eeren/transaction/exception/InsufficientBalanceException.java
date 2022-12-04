@@ -1,7 +1,7 @@
 package dev.eeren.transaction.exception;
 
-import dev.eeren.common.exception.BaseException;
-import dev.eeren.common.exception.ErrorEnum;
+import dev.eeren.utility.common.exception.BaseException;
+import dev.eeren.utility.common.exception.ErrorEnum;
 
 public class InsufficientBalanceException extends BaseException {
 
