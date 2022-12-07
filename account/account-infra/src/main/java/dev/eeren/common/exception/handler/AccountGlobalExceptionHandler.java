@@ -1,4 +1,4 @@
-package dev.eeren.handler;
+package dev.eeren.common.exception.handler;
 
 import brave.Tracer;
 import dev.eeren.utility.common.exception.BaseException;

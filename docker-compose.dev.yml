@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+
+  mariadb:
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: saga
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: password
+#    logging:
+#      driver: syslog
+#      options:
+#        tag: '{{.DaemonName}}(image={{.ImageName}};name={{.Name}};id={{.ID}})'
+    ports:
+      - '3306:3306'
+    networks:
+      - backend
+    restart: on-failure
+
+  rabbitmq:
+    image: rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: saga
+      RABBITMQ_DEFAULT_PASS: password
+    ports:
+      - '5672:5672'
+    networks:
+      - backend
+    restart: on-failure
+
+networks:
+  backend:
+    driver: bridge
